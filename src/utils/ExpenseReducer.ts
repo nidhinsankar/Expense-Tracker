@@ -4,13 +4,15 @@
 //
 
 import { ACTION_TYPES } from "./constants";
-import { ActionType, IExpense } from "./types";
+import { Action, IExpense } from "./types";
 
-function ExpenseReducer(state: IExpense, action: ActionType) {
+function ExpenseReducer(state: IExpense, action: Action) {
   switch (action.type) {
-    case ACTION_TYPES.ADD_TRANSACTION: {
-      return state;
-    }
+    case ACTION_TYPES.ADD_TRANSACTION:
+      return {
+        ...state,
+        transactions: [...state.transactions, action.payload],
+      };
 
     case ACTION_TYPES.DELETE_TRANSACTION: {
       return state;

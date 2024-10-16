@@ -1,3 +1,6 @@
+import React from "react";
+import { ACTION_TYPES } from "./constants";
+
 export interface ITransaction {
   id: string;
   name: string;
@@ -8,15 +11,18 @@ export interface IExpense {
   balance: number;
   income: number;
   expense: number;
-  history: ITransaction[];
+  transactions: ITransaction[];
 }
+
+export type Action =
+  | { type: "ADD_TRANSACTION"; payload: ITransaction }
+  | { type: "DELETE_TRANSACTION"; payload: string };
 
 export interface IExpenseContext extends IExpense {
-  addTransaction: (todo: ITransaction) => void;
-  deleteTransaction: (id: string) => void;
+  dispatch: React.Dispatch<Action>;
 }
 
-export type ActionType = {
-  type: string;
-  payload: object | string;
-};
+// export type ActionType = {
+//   type: string;
+//   payload: object | string;
+// };
