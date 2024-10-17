@@ -9,13 +9,9 @@ const initialState: IExpense = {
   transactions: [],
 };
 
-export const ExpenseContext = createContext<IExpenseContext>({
-  balance: initialState.balance,
-  expense: initialState.expense,
-  income: initialState.income,
-  transactions: initialState.transactions,
-  dispatch: () => {},
-});
+export const ExpenseContext = createContext<IExpenseContext | undefined>(
+  undefined
+);
 
 export const ExpenseProvider = ({
   children,
