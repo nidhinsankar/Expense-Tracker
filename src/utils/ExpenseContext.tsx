@@ -4,8 +4,8 @@ import { IExpense, IExpenseContext } from "./types";
 
 const initialState: IExpense = {
   balance: 0,
-  expense: 540,
-  income: 35,
+  expense: 0,
+  income: 0,
   transactions: [],
 };
 
