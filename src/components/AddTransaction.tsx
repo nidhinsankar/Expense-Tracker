@@ -22,7 +22,7 @@ const AddTransaction = () => {
     setTransactionInfo({ amount: 0, transaction_name: "" });
   };
   return (
-    <div>
+    <div className="add-transaction">
       <input
         type="text"
         placeholder="transaction name"

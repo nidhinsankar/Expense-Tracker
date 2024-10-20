@@ -4,14 +4,14 @@ import TransactionList from "./components/TransactionList";
 
 function App() {
   return (
-    <>
-      <div>Expense tracker</div>
+    <div className="container">
+      <h1>Expense tracker</h1>
       <ExpenseInfo />
 
       <TransactionList />
 
       <AddTransaction />
-    </>
+    </div>
   );
 }
 
