@@ -3,19 +3,45 @@ import { useExpenseContext } from "../utils/ExpenseContext";
 const TransactionList = () => {
   const { transactions, dispatch } = useExpenseContext();
 
-  const onDelete = (id: string) => {
-    dispatch({ type: "DELETE_TRANSACTION", payload: id });
-  };
-
   return (
-    <div>
+    <div className="transaction-container">
       {transactions.map((trans) => (
-        <div key={trans.id}>
-          {trans.name} -- {trans.amount} - {trans.id}
-          <button onClick={() => onDelete(trans.id)}>delete</button>
-        </div>
+        <TransactionItem
+          key={trans.id}
+          name={trans.name}
+          amount={trans.amount}
+          id={trans.id}
+        />
       ))}
     </div>
   );
 };
 export default TransactionList;
+
+const TransactionItem = ({
+  name,
+  amount,
+  id,
+}: {
+  name: string;
+  amount: number;
+  id: string;
+}) => {
+  const { dispatch } = useExpenseContext();
+  const onDelete = (id: string) => {
+    dispatch({ type: "DELETE_TRANSACTION", payload: id });
+  };
+  return (
+    <div
+      className={`transaction-item ${
+        amount > 0 ? "income-transaction" : "expense-transaction"
+      }`}
+    >
+      <h2>{name}</h2>
+      <div className="amount-info">
+        <h4>{amount}</h4>
+        <button onClick={() => onDelete(id)}>delete</button>
+      </div>
+    </div>
+  );
+};

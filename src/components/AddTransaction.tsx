@@ -13,6 +13,13 @@ const AddTransaction = () => {
     setTransactionInfo((prev) => ({ ...prev, [e.target.id]: e.target.value }));
   };
   const onSubmit = () => {
+    if (
+      transactionInfo.amount === 0 ||
+      transactionInfo.transaction_name === ""
+    ) {
+      alert("input fields are empty");
+      return;
+    }
     const transaction: ITransaction = {
       id: String(Math.random() * 15434323),
       name: transactionInfo.transaction_name,
@@ -37,7 +44,9 @@ const AddTransaction = () => {
         onChange={onChange}
         value={transactionInfo.amount}
       />
-      <button onClick={onSubmit}>ADD</button>
+      <button onClick={onSubmit} className="submit-btn">
+        ADD
+      </button>
     </div>
   );
 };
