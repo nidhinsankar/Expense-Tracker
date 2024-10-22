@@ -38,7 +38,25 @@ button {
 .info-container {
   display: grid;
   gap: 10px;
+
   grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.info-data {
+  font-size: 1.2rem;
+}
+
+.info-balance {
+  grid-column: span 2;
+}
+
+.info-expense .info-data {
+  color: #ff0000;
+}
+
+.info-income .info-data {
+  color: #076107;
 }
 
 .info-box {
@@ -46,12 +64,12 @@ button {
   flex-direction: column;
   gap: 10px;
   border-radius: 10px;
+
   /* margin: 10px; */
   background-color: #d8d5d5;
   /* box-shadow: 8px 16px 16px hsl(0deg 0% 0% / 0.25); */
   padding: 20px;
 }
-
 .add-transaction {
   display: flex;
   flex-direction: column;
@@ -62,16 +80,24 @@ button {
   padding: 10px;
   font-family: inherit;
   border-radius: 5px;
-  outline: none;
   font-size: 1rem;
   font-weight: 500;
   text-transform: capitalize;
+  border: 2px solid #d8d5d5;
 }
 
 .transaction-container {
   display: flex;
   flex-direction: column;
   gap: 5px;
+}
+
+.empty-list {
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-align: center;
+  color: crimson;
+  text-transform: uppercase;
 }
 
 .transaction-item {

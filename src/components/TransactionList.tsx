@@ -1,18 +1,22 @@
 import { useExpenseContext } from "../utils/ExpenseContext";
 
 const TransactionList = () => {
-  const { transactions, dispatch } = useExpenseContext();
+  const { transactions } = useExpenseContext();
 
   return (
     <div className="transaction-container">
-      {transactions.map((trans) => (
-        <TransactionItem
-          key={trans.id}
-          name={trans.name}
-          amount={trans.amount}
-          id={trans.id}
-        />
-      ))}
+      {transactions?.length === 0 ? (
+        <div className="empty-list">List is empty</div>
+      ) : (
+        transactions.map((trans) => (
+          <TransactionItem
+            key={trans.id}
+            name={trans.name}
+            amount={trans.amount}
+            id={trans.id}
+          />
+        ))
+      )}
     </div>
   );
 };
